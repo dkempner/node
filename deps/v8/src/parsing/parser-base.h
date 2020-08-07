@@ -5860,7 +5860,7 @@ typename ParserBase<Impl>::StatementT ParserBase<Impl>::ParseForStatement(
   ForStatementT loop =
       ParseStandardForLoop(stmt_pos, labels, own_labels, &cond, &next, &body, isFore);
   RETURN_IF_PARSE_ERROR;
-  loop->Initialize(init, cond, next, body, isFore);
+  loop->Initialize(init, cond, next, body);
   return loop;
 }
 
