@@ -474,7 +474,7 @@ class PreParserStatement {
                   const SourceRange& body_range = {}) {}
   void Initialize(PreParserStatement init, const PreParserExpression& cond,
                   PreParserStatement next, PreParserStatement body,
-                  const SourceRange& body_range = {}, bool* isFore = new bool(false)) {}
+                  const SourceRange& body_range = {}) {}
   void Initialize(PreParserExpression each, const PreParserExpression& subject,
                   PreParserStatement body, const SourceRange& body_range = {}) {
   }

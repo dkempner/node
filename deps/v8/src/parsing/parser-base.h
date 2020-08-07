@@ -6030,7 +6030,7 @@ ParserBase<Impl>::ParseStandardForLoopWithLexicalDeclarations(
     block->statements()->Add(init, zone());
     block->statements()->Add(loop, zone());
     block->set_scope(for_scope);
-    loop->Initialize(impl()->NullStatement(), cond, next, body);
+    loop->Initialize(impl()->NullStatement(), cond, next, body, isFore);
     return block;
   }
 
