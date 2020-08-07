@@ -501,8 +501,7 @@ class ForStatement final : public IterationStatement {
       : IterationStatement(pos, kForStatement),
         init_(nullptr),
         cond_(nullptr),
-        next_(nullptr),
-        isFore_(nullptr) {}
+        next_(nullptr) {}
 
   Statement* init_;
   Expression* cond_;

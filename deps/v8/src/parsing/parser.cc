@@ -2198,7 +2198,7 @@ Statement* Parser::DesugarLexicalBindingsInForStatement(
     // Note that we re-use the original loop node, which retains its labels
     // and ensures that any break or continue statements in body point to
     // the right place.
-    loop->Initialize(nullptr, flag_cond, compound_next_statement, body);
+    loop->Initialize(nullptr, flag_cond, compound_next_statement, body, isFore);
     inner_block->statements()->Add(loop, zone());
 
     // Make statement: {{if (flag == 1) break;}}
