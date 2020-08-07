@@ -5860,7 +5860,7 @@ typename ParserBase<Impl>::StatementT ParserBase<Impl>::ParseForStatement(
   ForStatementT loop =
       ParseStandardForLoop(stmt_pos, labels, own_labels, &cond, &next, &body, isFore);
   RETURN_IF_PARSE_ERROR;
-  loop->Initialize(init, cond, next, body);
+  loop->Initialize(init, cond, next, body, isFore);
   return loop;
 }
 
@@ -6006,7 +6006,7 @@ ParserBase<Impl>::ParseStandardForLoopWithLexicalDeclarations(
       function_state_->contains_function_or_eval()) {
     scope()->set_is_hidden();
     return impl()->DesugarLexicalBindingsInForStatement(
-        loop, init, cond, next, body, inner_scope, *for_info);
+        loop, init, cond, next, body, inner_scope, *for_info, isFore);
   } else {
     inner_scope = inner_scope->FinalizeBlockScope();
     DCHECK_NULL(inner_scope);

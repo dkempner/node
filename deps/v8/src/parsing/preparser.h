@@ -474,7 +474,7 @@ class PreParserStatement {
                   const SourceRange& body_range = {}) {}
   void Initialize(PreParserStatement init, const PreParserExpression& cond,
                   PreParserStatement next, PreParserStatement body,
-                  const SourceRange& body_range = {}) {}
+                  const SourceRange& body_range = {}, bool* isFore = new bool(false)) {}
   void Initialize(PreParserExpression each, const PreParserExpression& subject,
                   PreParserStatement body, const SourceRange& body_range = {}) {
   }
@@ -1400,7 +1400,7 @@ class PreParser : public ParserBase<PreParser> {
   V8_INLINE StatementT DesugarLexicalBindingsInForStatement(
       PreParserStatement loop, PreParserStatement init,
       const PreParserExpression& cond, PreParserStatement next,
-      PreParserStatement body, Scope* inner_scope, const ForInfo& for_info) {
+      PreParserStatement body, Scope* inner_scope, const ForInfo& for_info, bool* isFore) {
     // See Parser::DesugarLexicalBindingsInForStatement.
     for (auto name : for_info.bound_names) {
       bool was_added;
